@@ -36,9 +36,6 @@ public class Flocking_AI : MonoBehaviour
     {
         if (currentDelay > delay)
         {
-            
-
-            //
             direction = (Cohesion() + VelocityAndAlign() + Separation() + Following()).normalized * speed;
             currentDelay = 0.0f;
         }
@@ -118,6 +115,7 @@ public class Flocking_AI : MonoBehaviour
     {
         float value = Vector3.Distance(transform.position, myManager.leader.transform.position);
 
+
         finalSpeed = Mathf.Lerp(speed, followSpeed, (value / 100));
         finalRotationSpeed = Mathf.Lerp(myManager.rotationSpeed, rotationSpeed, (value / 100));
 
@@ -131,6 +129,7 @@ public class Flocking_AI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (myManager == null) return;
         if(myManager.debug)
             Debug.DrawLine(transform.position, (transform.position + direction));
     }

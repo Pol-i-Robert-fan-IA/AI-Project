@@ -26,11 +26,16 @@ public class Flocking_Manager_AI : MonoBehaviour
 
     [HideInInspector] public GameObject[] school;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         leader = GetComponentInChildren<Flocking_Leader_AI>();
 
+        leader.GetComponent<Flocking_AI>().myManager = this;
+    }
+
+    void Start()
+    {
         school = new GameObject[size];
         for (int i = 0; i < size; ++i)
         {
@@ -46,7 +51,6 @@ public class Flocking_Manager_AI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
 

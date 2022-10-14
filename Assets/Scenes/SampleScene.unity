@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -381,6 +381,47 @@ Transform:
   m_Father: {fileID: 1365079389}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1115286550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 515019300171058962, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
+  m_PrefabInstance: {fileID: 1484516741914933035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1115286553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115286550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a881592fff27b940a71b32d989b35eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myManager: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+--- !u!195 &1115286554
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115286550}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.25
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3
+  m_BaseOffset: 2.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1258008482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6275124588829000688, guid: 04e32d9c05f794949bb0c539a24a870b, type: 3}
@@ -623,15 +664,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1484516743463431241, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.54
+      value: -18.43
       objectReference: {fileID: 0}
     - target: {fileID: 1484516743463431241, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.94
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 1484516743463431241, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.46
+      value: 12.21
       objectReference: {fileID: 0}
     - target: {fileID: 1484516743463431241, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalRotation.w
@@ -677,19 +718,32 @@ PrefabInstance:
       propertyPath: minSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1484516743463431242, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
+      propertyPath: neighbourDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1484516743463431243, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_Name
       value: School
       objectReference: {fileID: 0}
     - target: {fileID: 2890828392763037200, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2890828392763037200, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.51
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4398098736154033703, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398098736154033703, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
+      propertyPath: detectionRadius
+      value: 16
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3007346327473910252, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 96f2bd2184aa7b945a0a3ea82e5acb22, type: 3}
 --- !u!1001 &5273047346662752241
 PrefabInstance:
