@@ -43,15 +43,15 @@ public class Wander_Evade_AI : MonoBehaviour
     {
         Vector3 followghost = Vector3.zero;
         Vector3 evasion = Vector3.zero;
-        agent.speed = speed;
+       
 
         if (DistanceRunners())
         {
             //Vector From runner to Gameobject that has this script
             evasion = (this.transform.position - runnertoavoid.transform.position);
             agent.SetDestination(evasion);
-            speed = 7.0f;
 
+            agent.acceleration = 8.0f;
         }
         else
         {
@@ -71,15 +71,10 @@ public class Wander_Evade_AI : MonoBehaviour
             //Vector From the Gameobject that has this script to Ghost
             agent.SetDestination(node[currentNode].transform.position);
 
-            speed = 3.5f;
+            agent.acceleration = 4.0f;
+
         }
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, evadeArea);
-        Gizmos.DrawWireSphere(transform.position, stopArea);
     }
 
     bool DistanceRunners()
