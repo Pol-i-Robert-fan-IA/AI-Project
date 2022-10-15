@@ -12,12 +12,15 @@ public class Runner_AI : MonoBehaviour
     private int currentNode = 0;
 
     private NavMeshAgent agent;
+    private Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
 
         agent.SetDestination(GetNodePos());
+        animator.Play("Running");
     }
 
     void Update()
@@ -28,7 +31,7 @@ public class Runner_AI : MonoBehaviour
             else currentNode++;
             agent.SetDestination(GetNodePos());
         }
-
+        
     }
 
     bool CheckNode()

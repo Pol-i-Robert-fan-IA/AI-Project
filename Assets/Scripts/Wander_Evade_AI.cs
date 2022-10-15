@@ -22,6 +22,8 @@ public class Wander_Evade_AI : MonoBehaviour
     [SerializeField] int num_runners = 3;
     [SerializeField] float speed = 3.5f;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,9 @@ public class Wander_Evade_AI : MonoBehaviour
         agent.speed = speed;
 
         node = path.GetPathNodes();
+        
+        animator = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -84,9 +89,12 @@ public class Wander_Evade_AI : MonoBehaviour
             if(Vector3.Distance(runnerArray[i].transform.position, this.transform.position) < evadeArea)
             {
                 runnertoavoid = runnerArray[i];
+                animator.Play("Running_Away");
                 return true;
             }
         }
+
+        animator.Play("Running_Normal");
         return false;
     }
 

@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273047347022613911, guid: a574b852f5ff611459f70418106ad23f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5273047347022613911, guid: a574b852f5ff611459f70418106ad23f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -434,6 +434,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2583430904008301941, guid: 04e32d9c05f794949bb0c539a24a870b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6275124588829000651, guid: 04e32d9c05f794949bb0c539a24a870b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -486,7 +490,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2583430904008301941, guid: 04e32d9c05f794949bb0c539a24a870b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04e32d9c05f794949bb0c539a24a870b, type: 3}
 --- !u!1 &1365079388
 GameObject:
