@@ -9,8 +9,7 @@ public class Flocking_Leader_AI : MonoBehaviour
     public enum LEADER_STATE
     {
         FLOCKING = 0,
-        SEEK,
-        BACK
+        SEEK
     }
 
     public LEADER_STATE state = LEADER_STATE.FLOCKING;
@@ -23,9 +22,6 @@ public class Flocking_Leader_AI : MonoBehaviour
 
     //Seek
     private NavMeshAgent agent;
-
-    //Back
-    private Transform basePoint;
 
     private float currentDelay = Mathf.Infinity;
     [Tooltip("Update delay")] public float delay = 0.5f;
@@ -40,8 +36,6 @@ public class Flocking_Leader_AI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         flocking = GetComponent<Flocking_AI>();
         runners = GameObject.FindObjectsOfType<Runner_AI>();
-        basePoint = transform.parent.transform;
-        flocking.followingTarget = transform.parent.transform;
     }
 
     void Update()
@@ -57,13 +51,12 @@ public class Flocking_Leader_AI : MonoBehaviour
             }
             else
             {
-                state = LEADER_STATE.BACK;
-                agent.enabled = false;
+                state = LEADER_STATE.FLOCKING;
                 flocking.enabled = true;
+                agent.enabled = false;
             }
 
             if(state == LEADER_STATE.SEEK) Seek();
-            //if (state == LEADER_STATE.BACK) GoBackToPoint();
         }
         currentDelay += Time.deltaTime;
     }
@@ -83,7 +76,7 @@ public class Flocking_Leader_AI : MonoBehaviour
                 return true;
             }
         }
-        target = null;
+
         return false;
     }
 
@@ -93,14 +86,4 @@ public class Flocking_Leader_AI : MonoBehaviour
         currentDelay = 0.0f;
         
     }
-
-    //private void GoBackToPoint()
-    //{
-    //    agent.SetDestination(basePoint.position);
-    //    if (Vector3.Distance(transform.position, basePoint.position) < 3.0f)
-    //    {
-    //        state = LEADER_STATE.FLOCKING;
-    //        flocking.enabled = true;
-    //    }
-    //}
 }

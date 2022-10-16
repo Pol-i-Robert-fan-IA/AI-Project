@@ -26,6 +26,7 @@ public class Flocking_Manager_AI : MonoBehaviour
 
     [HideInInspector] public GameObject[] school;
 
+    [HideInInspector] public bool backToPoint = false; //Used by Flocking_Leader_Ai.cs
 
     private void Awake()
     {

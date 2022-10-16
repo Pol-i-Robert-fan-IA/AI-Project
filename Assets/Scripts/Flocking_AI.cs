@@ -42,7 +42,7 @@ public class Flocking_AI : MonoBehaviour
             currentDelay = 0.0f;
         }
         currentDelay += Time.deltaTime;
-
+        
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), finalRotationSpeed * Time.deltaTime);
         transform.Translate(0.0f, 0.0f, Time.deltaTime * finalSpeed);
     }
@@ -118,8 +118,7 @@ public class Flocking_AI : MonoBehaviour
         if (followingTarget == null) followingTarget = myManager.leader.transform;
 
         float value = Vector3.Distance(transform.position, followingTarget.position);
-
-
+        
         finalSpeed = Mathf.Lerp(speed, followSpeed, (value / 100));
         finalRotationSpeed = Mathf.Lerp(myManager.rotationSpeed, rotationSpeed, (value / 100));
 
