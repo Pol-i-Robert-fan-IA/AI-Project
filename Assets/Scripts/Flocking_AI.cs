@@ -23,6 +23,8 @@ public class Flocking_AI : MonoBehaviour
     private float finalSpeed = 0.0f;
     private float finalRotationSpeed = 0.0f;
 
+    [HideInInspector] public Transform followingTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,7 +115,9 @@ public class Flocking_AI : MonoBehaviour
 
     private Vector3 Following()
     {
-        float value = Vector3.Distance(transform.position, myManager.leader.transform.position);
+        if (followingTarget == null) followingTarget = myManager.leader.transform;
+
+        float value = Vector3.Distance(transform.position, followingTarget.position);
 
 
         finalSpeed = Mathf.Lerp(speed, followSpeed, (value / 100));
