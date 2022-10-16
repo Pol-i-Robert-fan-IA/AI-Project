@@ -13,13 +13,11 @@ public class Wander_Evade_AI : MonoBehaviour
     [Range(2.0f, 5.0f)]
     [SerializeField] float stopArea;
     [Range(2.0f, 8.0f)]
-    [SerializeField] float rotationspeed = 3.0f;
     private NavMeshAgent agent;
     [SerializeField] int currentNode = 0;
     Node[] node;
     GameObject[] runnerArray;
     GameObject runnertoavoid;
-    [SerializeField] int num_runners = 3;
 
     private Animator animator;
 
