@@ -25,7 +25,6 @@ public class Flocking_AI : MonoBehaviour
 
     [HideInInspector] public Transform followingTarget;
 
-    // Start is called before the first frame update
     void Start()
     {
         direction = new Vector3(0, 0, 0);
@@ -33,7 +32,6 @@ public class Flocking_AI : MonoBehaviour
         delay = Random.Range(myManager.delayMin, myManager.delayMax);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (currentDelay > delay)
@@ -45,6 +43,12 @@ public class Flocking_AI : MonoBehaviour
         
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), finalRotationSpeed * Time.deltaTime);
         transform.Translate(0.0f, 0.0f, Time.deltaTime * finalSpeed);
+    }
+    private void OnDrawGizmos()
+    {
+        if (myManager == null) return;
+        if (myManager.debug)
+            Debug.DrawLine(transform.position, (transform.position + direction));
     }
 
     private Vector3 Cohesion()
@@ -128,12 +132,5 @@ public class Flocking_AI : MonoBehaviour
         vector = myManager.leader.transform.position - transform.position;
 
         return vector;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (myManager == null) return;
-        if(myManager.debug)
-            Debug.DrawLine(transform.position, (transform.position + direction));
     }
 }

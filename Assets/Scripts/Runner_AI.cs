@@ -31,7 +31,6 @@ public class Runner_AI : MonoBehaviour
             else currentNode++;
             agent.SetDestination(GetNodePos());
         }
-        
     }
 
     bool CheckNode()

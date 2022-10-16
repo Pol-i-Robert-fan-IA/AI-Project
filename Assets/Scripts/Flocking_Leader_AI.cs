@@ -15,7 +15,6 @@ public class Flocking_Leader_AI : MonoBehaviour
     public LEADER_STATE state = LEADER_STATE.FLOCKING;
     Flocking_AI flocking = null;
 
-
     [SerializeField] float detectionRadius = 10.0f;
     [SerializeField] Runner_AI[] runners;
     public Runner_AI target;
@@ -25,11 +24,6 @@ public class Flocking_Leader_AI : MonoBehaviour
 
     private float currentDelay = Mathf.Infinity;
     [Tooltip("Update delay")] public float delay = 0.5f;
-
-    private void Awake()
-    {
-        
-    }
 
     void Start()
     {
@@ -84,6 +78,5 @@ public class Flocking_Leader_AI : MonoBehaviour
     {
         agent.SetDestination(target.transform.position);
         currentDelay = 0.0f;
-        
     }
 }

@@ -13,8 +13,10 @@ public class Flocking_Manager_AI : MonoBehaviour
     public float neighbourDistance = 30.0f;
     [Range(1.0f, 20.0f)] public float minSpeed = 2.0f;
     [Range(1.0f, 20.0f)] public float maxSpeed = 8.0f;
+
     [Header("")]
     [Range(0.05f, 1.0f)] public float rotationSpeed = 3.0f;
+
     [Header("")]
     public float delayMin = 2.0f;
     public float delayMax = 3.5f;
@@ -25,8 +27,6 @@ public class Flocking_Manager_AI : MonoBehaviour
     public bool debug = false;
 
     [HideInInspector] public GameObject[] school;
-
-    [HideInInspector] public bool backToPoint = false; //Used by Flocking_Leader_Ai.cs
 
     private void Awake()
     {
@@ -50,11 +50,6 @@ public class Flocking_Manager_AI : MonoBehaviour
 
             school[i].transform.parent = gameObject.transform;
         }
-    }
-
-    void Update()
-    {
-
     }
 
     private void OnDrawGizmos()

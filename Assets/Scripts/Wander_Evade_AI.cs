@@ -7,18 +7,19 @@ public class Wander_Evade_AI : MonoBehaviour
 {
     [Header("Path")]
     [SerializeField] Node_Path path;
+
     [Header("Variables")]
-    [Range(5.0f, 10.0f)]
-    [SerializeField] float evadeArea;
-    [Range(2.0f, 5.0f)]
-    [SerializeField] float stopArea;
-    [Range(2.0f, 8.0f)]
-    private NavMeshAgent agent;
+    [Range(5.0f, 10.0f)][SerializeField] float evadeArea;
+    [Range(2.0f, 5.0f)][SerializeField] float stopArea;
+
+    //Nodes
     [SerializeField] int currentNode = 0;
     Node[] node;
+
     GameObject[] runnerArray;
     GameObject runnertoavoid;
 
+    private NavMeshAgent agent;
     private Animator animator;
 
     // Start is called before the first frame update
