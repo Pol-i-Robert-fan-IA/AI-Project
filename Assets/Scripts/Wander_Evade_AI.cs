@@ -20,7 +20,6 @@ public class Wander_Evade_AI : MonoBehaviour
     GameObject[] runnerArray;
     GameObject runnertoavoid;
     [SerializeField] int num_runners = 3;
-    [SerializeField] float speed = 3.5f;
 
     private Animator animator;
 
@@ -30,7 +29,6 @@ public class Wander_Evade_AI : MonoBehaviour
         runnerArray = GameObject.FindGameObjectsWithTag("Runner");
 
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
 
         node = path.GetPathNodes();
         
@@ -49,7 +47,7 @@ public class Wander_Evade_AI : MonoBehaviour
         {
             //Vector From runner to Gameobject that has this script
             evasion = (this.transform.position - runnertoavoid.transform.position);
-            agent.SetDestination(evasion);
+            agent.SetDestination(evasion + this.transform.position);
 
             agent.acceleration = 8.0f;
         }
