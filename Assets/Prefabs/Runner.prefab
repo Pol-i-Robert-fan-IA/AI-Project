@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6275124588829000654}
   - component: {fileID: 6275124588829000655}
   - component: {fileID: 6275124588829000650}
+  - component: {fileID: -85804722878647419}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Runner
@@ -85,6 +86,18 @@ NavMeshAgent:
   m_BaseOffset: -0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-85804722878647419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275124588829000688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3abea381df4de4983ec2ab62f6b529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5465331511369579347
 PrefabInstance:
   m_ObjectHideFlags: 0

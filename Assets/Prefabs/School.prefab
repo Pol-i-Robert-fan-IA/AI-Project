@@ -57,6 +57,7 @@ MonoBehaviour:
   delayMax: 3.5
   initMinPos: {x: -3, y: -3, z: -3}
   initMaxPos: {x: 3, y: 3, z: 3}
+  debug: 0
   school: []
 --- !u!23 &1484516743463431240
 MeshRenderer:
@@ -169,6 +170,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63eaee406d78062488889a94e833b8e6, type: 3}
+--- !u!1 &515019300171058962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7633307871636923832, guid: 63eaee406d78062488889a94e833b8e6, type: 3}
+  m_PrefabInstance: {fileID: 7983547623484566186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &239728070760167138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515019300171058962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3abea381df4de4983ec2ab62f6b529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2890828392763037200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5103998228239957178, guid: 63eaee406d78062488889a94e833b8e6, type: 3}
