@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Runner
+  - Wounded
+  - Orc
+  - Healer
   layers:
   - Default
   - TransparentFX

@@ -29,6 +29,7 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             var = value;
+            
         }
         /// <summary>Method of Update of SetBool.</summary>
         /// <remarks>Complete the task.</remarks>

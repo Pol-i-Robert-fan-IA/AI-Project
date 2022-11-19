@@ -11,8 +11,6 @@ namespace BBUnity.Conditions
     public class IsTargetInSight : GOCondition
     {
         ///<value>Input Target Parameter to check the angle.</value>
-        [InParam("target")]
-        [Help("Target to check the angle")]
         public GameObject target;
 
         ///<value>Input view angle parameter to consider that the target is in sight.</value>
@@ -27,6 +25,7 @@ namespace BBUnity.Conditions
         /// <returns>True if the angle of forward vector with the  raycast direction is lower than the given angle.</returns>
         public override bool Check()
 		{
+            target = GameObject.FindGameObjectWithTag("Wounded");
             Vector3 dir = (target.transform.position - gameObject.transform.position);
             RaycastHit hit;
             if (Physics.Raycast(gameObject.transform.position + new Vector3(0, 0.1f, 0), dir, out hit))

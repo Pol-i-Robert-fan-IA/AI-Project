@@ -12,9 +12,9 @@ namespace BBUnity.Actions
     public class MoveToPosition : GOAction
     {
         ///<value>Input target position where the game object will be moved Parameter.</value>
-        [InParam("target")]
+        [InParam("Spot")]
         [Help("Target position where the game object will be moved")]
-        public Vector3 target;
+        public GameObject spot;
 
         private UnityEngine.AI.NavMeshAgent navAgent;
 
@@ -28,7 +28,8 @@ namespace BBUnity.Actions
                 Debug.LogWarning("The " + gameObject.name + " game object does not have a Nav Mesh Agent component to navigate. One with default values has been added", gameObject);
                 navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
             }
-            navAgent.SetDestination(target);
+            Debug.Log("Destination = " + spot.transform.position);
+            navAgent.SetDestination(spot.transform.position);
 
             #if UNITY_5_6_OR_NEWER
                 navAgent.isStopped = false;
