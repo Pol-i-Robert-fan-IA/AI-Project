@@ -10,8 +10,6 @@ namespace BBUnity.Conditions
     public class IsTargetCloseAndInSight : GOCondition
     {
         ///<value>Input Target Parameter to to check the distance and angle.</value>
-        [InParam("target")]
-        [Help("Target to check the distance and angle")]
         public GameObject target;
 
         ///<value>Input view angle parameter to consider that the target is in sight.value>
@@ -33,6 +31,8 @@ namespace BBUnity.Conditions
         /// and if the angle of forward vector with the  raycast direction is lower than the given angle, false therwase.</returns>
 		public override bool Check()
         {
+            target = GameObject.FindGameObjectWithTag("Wounded");
+
             Vector3 dir = (target.transform.position - gameObject.transform.position);
             if (dir.sqrMagnitude > closeDistance * closeDistance)
                 return false;
