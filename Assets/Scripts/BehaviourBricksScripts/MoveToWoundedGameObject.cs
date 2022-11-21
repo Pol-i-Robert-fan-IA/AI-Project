@@ -37,6 +37,7 @@ public class MoveToWoundedGameObject : BasePrimitiveAction
 
         if(Vector3.Distance(Wounded.transform.position, Healer.transform.position) < stopdistance)
         {
+            navAgent.SetDestination(Healer.transform.position);
             return TaskStatus.COMPLETED;
         }
 
