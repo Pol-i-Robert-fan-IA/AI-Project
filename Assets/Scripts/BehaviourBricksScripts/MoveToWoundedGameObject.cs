@@ -23,7 +23,6 @@ public class MoveToWoundedGameObject : BasePrimitiveAction
     {
       
         navAgent = Healer.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        navAgent.isStopped = false;
         Wounded = GameObject.FindGameObjectWithTag("Wounded");
         if (Vector3.Distance(Wounded.transform.position, Healer.transform.position) > stopdistance)
         {
@@ -37,7 +36,7 @@ public class MoveToWoundedGameObject : BasePrimitiveAction
 
         if(Vector3.Distance(Wounded.transform.position, Healer.transform.position) < stopdistance)
         {
-            navAgent.SetDestination(Healer.transform.position);
+            
             return TaskStatus.COMPLETED;
         }
 
