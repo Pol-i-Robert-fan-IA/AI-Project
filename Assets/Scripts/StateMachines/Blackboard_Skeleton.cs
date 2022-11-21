@@ -14,7 +14,7 @@ namespace Skeleton
         public Transform corpse;
         public Vector3 point;
         public Animator animator;
-
+        public bool isDead = false;
 
         private void Start()
         {

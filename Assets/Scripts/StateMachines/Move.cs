@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] private float wanderRangeMin = 2.0f;
-    [SerializeField] private float wanderRangeMax = 10.0f;
+
+    [SerializeField] private float wanderRange = 15.0f;
 
     [SerializeField] private LayerMask layerMask = 0;
 
@@ -55,7 +55,8 @@ public class Move : MonoBehaviour
     private Vector3 RandomRayCast()
     {
         RaycastHit hit;
-        Vector3 origin = new Vector3(Random.Range(wanderRangeMin, wanderRangeMax), 100, Random.Range(wanderRangeMin, wanderRangeMax));
+        Vector3 origin = Random.insideUnitSphere * wanderRange;
+        origin.y = 100.0f;
         if (Physics.Raycast(origin, transform.TransformDirection(Vector3.down), out hit, 200.0f, layerMask))
         {
             Debug.DrawRay(origin, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
