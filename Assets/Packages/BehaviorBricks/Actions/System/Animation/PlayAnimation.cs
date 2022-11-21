@@ -33,13 +33,14 @@ namespace BBUnity.Actions
         [Help("Wheter the action waits till the end of the animation to be completed")]
         public bool waitUntilFinish;
 
-        private float elapsedTime;
+        float elapsedTime;
 
+        Animator animator;
         /// <summary>Initialization Method of PlayAnimation.</summary>
         /// <remarks>Associate and Inacialize the animation and the elapsed time.</remarks>
         public override void OnStart()
         {
-            Animator animator = gameObject.GetComponentInChildren<Animator>();
+            animator = gameObject.GetComponentInChildren<Animator>();
             animator.Play("Base Layer.Shoot");
             Debug.Log("Play anim");
 
