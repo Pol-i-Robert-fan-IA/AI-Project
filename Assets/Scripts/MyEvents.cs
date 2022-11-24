@@ -5,5 +5,6 @@ using UnityEngine;
 
 public class MyEvents : MonoBehaviour
 { 
-    public List<Blackboard_Skeleton> skeletons;
+    public List<Blackboard_Skeleton> aliveSkeletons;
+    public List<Blackboard_Skeleton> deathSkeletons;
 }

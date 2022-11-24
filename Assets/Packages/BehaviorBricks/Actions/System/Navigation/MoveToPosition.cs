@@ -16,6 +16,9 @@ namespace BBUnity.Actions
         [Help("Target position where the game object will be moved")]
         public GameObject spot;
 
+        [InParam("StopRange")]
+        public float stopRange = 0;
+
         private UnityEngine.AI.NavMeshAgent navAgent;
 
         /// <summary>Initialization Method of MoveToPosition.</summary>
@@ -29,7 +32,11 @@ namespace BBUnity.Actions
                 navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
             }
             Debug.Log("Destination = " + spot.transform.position);
-            navAgent.SetDestination(spot.transform.position);
+            
+            if (Vector3.Distance(navAgent.transform.position, spot.transform.position) > stopRange)
+            {
+                navAgent.SetDestination(spot.transform.position);
+            }
 
             #if UNITY_5_6_OR_NEWER
                 navAgent.isStopped = false;
@@ -43,7 +50,7 @@ namespace BBUnity.Actions
         /// and otherwise it will remain in operation.</remarks>
         public override TaskStatus OnUpdate()
         {
-            if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
+            if (!navAgent.pathPending && navAgent.remainingDistance <= stopRange)
                 return TaskStatus.COMPLETED;
 
             return TaskStatus.RUNNING;

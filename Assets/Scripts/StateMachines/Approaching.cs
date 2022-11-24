@@ -19,11 +19,11 @@ public class Approaching : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("To Corpse");
+        if (blackboard.isDead) animator.SetBool("isDead", true);
+
         if (Vector3.Distance(move.transform.position, blackboard.corpse.position) < blackboard.dist2Eat)
         {
             move.StopAgent();
-            Debug.Log("Eat");
             animator.SetTrigger("Eat");
         };
     }

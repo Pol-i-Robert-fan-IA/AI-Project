@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-[Action("Vector3/MoveToWounded")]
+[Action("Vector3/MoveToSkeleton")]
 [Help("Gets a vector to wounded position")]
 public class MoveToWoundedGameObject : BasePrimitiveAction
 {
@@ -14,35 +14,35 @@ public class MoveToWoundedGameObject : BasePrimitiveAction
 
     private UnityEngine.AI.NavMeshAgent navAgent;
 
-    private GameObject Wounded;
+    [InParam("Skeleton")]
+    public GameObject Skeleton;
 
     [InParam("Stop Distance")]
     public float stopdistance;
 
     public override void OnStart()
     {
-      
+
         navAgent = Healer.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Wounded = GameObject.FindGameObjectWithTag("Wounded");
-        if (Vector3.Distance(Wounded.transform.position, Healer.transform.position) > stopdistance)
+        if (Vector3.Distance(Skeleton.transform.position, Healer.transform.position) > stopdistance)
         {
-            Debug.Log("Distancia = " + Vector3.Distance(Wounded.transform.position, Healer.transform.position));
+            Debug.Log("Distancia = " + Vector3.Distance(Skeleton.transform.position, Healer.transform.position));
             Debug.Log("Stopdistance = " + stopdistance);
-            navAgent.SetDestination(Wounded.transform.position);
+            navAgent.SetDestination(Skeleton.transform.position);
         }
     }
     public override TaskStatus OnUpdate()
     {
 
-        if(Vector3.Distance(Wounded.transform.position, Healer.transform.position) < stopdistance)
+        if (Vector3.Distance(Skeleton.transform.position, Healer.transform.position) < stopdistance)
         {
-            
+
             return TaskStatus.COMPLETED;
         }
 
 
-        navAgent.SetDestination(Wounded.transform.position);
-        
+        navAgent.SetDestination(Skeleton.transform.position);
+
         return TaskStatus.RUNNING;
     }
 }

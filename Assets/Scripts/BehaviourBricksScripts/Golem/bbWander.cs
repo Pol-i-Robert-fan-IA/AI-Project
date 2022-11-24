@@ -9,7 +9,6 @@ public class bbWander : BasePrimitiveAction
 {
 
     private UnityEngine.AI.NavMeshAgent navAgent;
-    [Range(1, 100)] private float range;
 
     [InParam("GameObject")]
     private GameObject go;

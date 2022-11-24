@@ -29,6 +29,11 @@ public class Move : MonoBehaviour
         agent.isStopped = true;
     }
 
+    public void StartAgent()
+    {
+        agent.isStopped = false;
+    }
+
     public void Displace(Vector3 point)
     {
         agent.SetDestination(point);
@@ -55,7 +60,8 @@ public class Move : MonoBehaviour
     private Vector3 RandomRayCast()
     {
         RaycastHit hit;
-        Vector3 origin = Random.insideUnitSphere * wanderRange;
+        Vector3 origin = transform.position + Random.insideUnitSphere * wanderRange;
+
         origin.y = 100.0f;
         if (Physics.Raycast(origin, transform.TransformDirection(Vector3.down), out hit, 200.0f, layerMask))
         {
@@ -63,10 +69,5 @@ public class Move : MonoBehaviour
         }
 
         return (hit.point);
-    }
-
-    private void LookForCorpse()
-    {
-
     }
 }

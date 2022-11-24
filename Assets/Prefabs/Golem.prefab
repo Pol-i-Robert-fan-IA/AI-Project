@@ -3097,7 +3097,7 @@ GameObject:
   - component: {fileID: 8280540326305170102}
   m_Layer: 0
   m_Name: Golem
-  m_TagString: Untagged
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

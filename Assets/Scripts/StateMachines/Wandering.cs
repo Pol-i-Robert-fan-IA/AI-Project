@@ -20,7 +20,9 @@ namespace Skeleton
         }
 
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {;
+        {
+            if (blackboard.isDead) animator.SetBool("isDead", true);
+
             //When close to the point
             if (Vector3.Distance(blackboard.point, animator.transform.position) < 2f)
             {

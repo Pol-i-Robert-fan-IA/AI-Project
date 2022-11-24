@@ -7,11 +7,14 @@ using Pada1.BBCore.Framework;
 [Help("Checks whether Cop is near the Treasure.")]
 public class IsCopNear : ConditionBase
 {
+
+    [InParam("Skeleton")]
+    public GameObject skeleton = null;
+
     public override bool Check()
     {
         GameObject orc = GameObject.FindGameObjectWithTag("Orc");
-        GameObject woundednpc = GameObject.FindGameObjectWithTag("Wounded");
 
-        return Vector3.Distance(orc.transform.position, woundednpc.transform.position) < 10f;
+        return Vector3.Distance(orc.transform.position, skeleton.transform.position) < 10f;
     }
 }
