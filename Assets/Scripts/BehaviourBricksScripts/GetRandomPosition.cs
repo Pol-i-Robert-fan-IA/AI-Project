@@ -9,35 +9,26 @@ using UnityEngine;
 [Help("Gets a random position")]
 public class GetRandomPosition : BasePrimitiveAction
 {
-    [InParam("Range")]
-    [Range(1,20)]public float range;
     [InParam("GameObject")]
-    public GameObject Healer;
+    public GameObject go;
 
     private UnityEngine.AI.NavMeshAgent navAgent;
 
-    private Vector3 randomPosition;
+    private Move move;
 
     public override void OnStart()
     {
-        navAgent = Healer.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        randomPosition = Random.insideUnitSphere * range;
-        randomPosition = randomPosition + Healer.transform.position;
-
-        Debug.Log(randomPosition);
-        navAgent.SetDestination(randomPosition);
+        navAgent = go.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        move = go.GetComponent<Move>();
+        move.NewPoint();
     }
     public override TaskStatus OnUpdate()
     {
-        
         if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
         {
             return TaskStatus.COMPLETED;
         }
-        else
-        {
             return TaskStatus.RUNNING;
-        }
     }
 }
 

@@ -8,13 +8,21 @@ using Pada1.BBCore.Framework;
 public class IsCopNear : ConditionBase
 {
 
-    [InParam("Skeleton")]
-    public GameObject skeleton = null;
+    [InParam("GameObject")]
+    public GameObject self = null;
 
     public override bool Check()
     {
-        GameObject orc = GameObject.FindGameObjectWithTag("Orc");
+        GameObject[] orc = GameObject.FindGameObjectsWithTag("Orc");
 
-        return Vector3.Distance(orc.transform.position, skeleton.transform.position) < 10f;
+        foreach (GameObject o in orc)
+        {
+            
+            if (Vector3.Distance(self.transform.position, o.transform.position) < 10f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

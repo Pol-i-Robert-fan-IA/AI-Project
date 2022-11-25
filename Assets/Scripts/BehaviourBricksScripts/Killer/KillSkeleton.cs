@@ -12,6 +12,9 @@ public class KillSkeleton : BasePrimitiveAction
     [InParam("MyEvents")]
     private MyEvents myEvents;
 
+    [InParam("Self")]
+    private GameObject self;
+
     [InParam("Skeleton")]
     [OutParam("Skeleton")]
     private GameObject skeleton;
@@ -21,19 +24,17 @@ public class KillSkeleton : BasePrimitiveAction
 
     public override void OnStart()
     {
-        skeleton.GetComponent<Blackboard_Skeleton>().isDead = true;
-
-        if (myEvents.aliveSkeletons.Count >= (skeletonId + 1))
+        if (skeleton != null)
         {
-            if (myEvents.aliveSkeletons[skeletonId] != skeleton)
-            {
+            skeleton.GetComponent<Blackboard_Skeleton>().isDead = true;
+
+                myEvents.aliveSkeletons.RemoveAt(skeletonId);
                 skeletonId = -1;
                 skeleton = null;
-                return;
-            }
-            myEvents.aliveSkeletons.RemoveAt(skeletonId);
-            skeletonId = -1;
-            skeleton = null;
+            //Adds the Killer to the list of killers so the Golem starts chasing them
+            Killer killer = self.GetComponent<Killer>();
+
+                myEvents.killers.Add(killer);
         }
     }
 

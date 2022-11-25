@@ -100,47 +100,47 @@ MonoBehaviour:
     <ConditionNode id=\"48\" />\r\n          <ActionNode id=\"51\" />\r\n         
     <RepeatDecorator id=\"52\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
     <RepeatDecorator id=\"52\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"608.0978 324.5356\" name=\"Repeat\" description=\"Repeats
+    selected=\"False\" position=\"375.7646 -222.1072\" name=\"Repeat\" description=\"Repeats
     the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"52\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"28\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"600.4712
-    494.5796\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"368.1382
+    -52.06332\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"52\" />\r\n         
     <RepeatDecorator id=\"52\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <SubbehaviorNode id=\"9\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"408.7282 746.7846\" name=\"Steal\" description=\"\"
+    selected=\"False\" position=\"176.3951 200.1418\" name=\"Steal\" description=\"\"
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ParallelNode id=\"35\" />\r\n          <SequenceNode id=\"28\" />\r\n       
     </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n    <SequenceNode id=\"47\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"916.9743
-    616.8784\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"684.6407
+    70.23545\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"47\" />\r\n         
     <SequenceNode id=\"28\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <SequenceNode id=\"50\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"688.6691 823.1071\" name=\"Sequence\" description=\"Executes all its
+    position=\"456.3359 276.4642\" name=\"Sequence\" description=\"Executes all its
     children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"50\" />\r\n         
     <SequenceNode id=\"47\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ConditionNode id=\"48\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"896.689 838.5891\" name=\"Basic/CheckBool\" description=\"Checks
+    selected=\"False\" position=\"664.3554 291.9461\" name=\"Basic/CheckBool\" description=\"Checks
     whether two booleans have the same value\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionNode id=\"48\" />\r\n         
     <SequenceNode id=\"47\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionNode>\r\n   
     <ActionNode id=\"51\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"1370.67 827.6786\" name=\"Basic/SetBool\" description=\"Sets a value
+    position=\"1138.337 281.0357\" name=\"Basic/SetBool\" description=\"Sets a value
     to a boolean variable\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"51\" />\r\n          <SequenceNode
     id=\"47\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"41\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"586.1171 1026.876\" name=\"Navigation/MoveToPosition\" description=\"Moves
+    <ActionNode id=\"41\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"353.784 480.2333\" name=\"Navigation/MoveToPosition\" description=\"Moves
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"41\" />\r\n          <SequenceNode id=\"50\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"45\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"828.6891 1028.877\" name=\"Basic/SetBool\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"596.3555 482.2343\" name=\"Basic/SetBool\"
     description=\"Sets a value to a boolean variable\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"45\" />\r\n         
     <SequenceNode id=\"50\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
@@ -183,7 +183,7 @@ MonoBehaviour:
     <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <BehaviorTree id=\"37\"
     _removeIfClosed=\"False\">\r\n      <_rootList />\r\n      <_nodes>\r\n       
     <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.7
+  zoom: 0.6
   subslist:
   - {fileID: 11400000, guid: 8fb15f8386cfe1f4dbb84adc126b920a, type: 2}
   _guid: d5251bc7969189c49977413ac0504985

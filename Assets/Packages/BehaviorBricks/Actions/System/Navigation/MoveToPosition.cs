@@ -31,7 +31,6 @@ namespace BBUnity.Actions
                 Debug.LogWarning("The " + gameObject.name + " game object does not have a Nav Mesh Agent component to navigate. One with default values has been added", gameObject);
                 navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
             }
-            Debug.Log("Destination = " + spot.transform.position);
             
             if (Vector3.Distance(navAgent.transform.position, spot.transform.position) > stopRange)
             {
