@@ -8,6 +8,7 @@ TagManager:
   - Wounded
   - Orc
   - Healer
+  - Wall
   layers:
   - Default
   - TransparentFX
