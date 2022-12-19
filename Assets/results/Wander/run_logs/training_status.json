@@ -1,0 +1,65 @@
+{
+    "Wander": {
+        "checkpoints": [
+            {
+                "steps": 1901770,
+                "file_path": "results\\Wander\\Wander\\Wander-1901770.onnx",
+                "reward": null,
+                "creation_time": 1671472042.4351232,
+                "auxillary_file_paths": [
+                    "results\\Wander\\Wander\\Wander-1901770.pt"
+                ]
+            },
+            {
+                "steps": 2203507,
+                "file_path": "results\\Wander\\Wander\\Wander-2203507.onnx",
+                "reward": null,
+                "creation_time": 1671474455.0213237,
+                "auxillary_file_paths": [
+                    "results\\Wander\\Wander\\Wander-2203507.pt"
+                ]
+            },
+            {
+                "steps": 2427411,
+                "file_path": "results\\Wander\\Wander\\Wander-2427411.onnx",
+                "reward": 0.8383333335320154,
+                "creation_time": 1671475251.229245,
+                "auxillary_file_paths": [
+                    "results\\Wander\\Wander\\Wander-2427411.pt"
+                ]
+            },
+            {
+                "steps": 2432180,
+                "file_path": "results\\Wander\\Wander\\Wander-2432180.onnx",
+                "reward": 0.710999995470047,
+                "creation_time": 1671475389.205982,
+                "auxillary_file_paths": [
+                    "results\\Wander\\Wander\\Wander-2432180.pt"
+                ]
+            },
+            {
+                "steps": 2446100,
+                "file_path": "results\\Wander\\Wander\\Wander-2446100.onnx",
+                "reward": null,
+                "creation_time": 1671476209.987059,
+                "auxillary_file_paths": [
+                    "results\\Wander\\Wander\\Wander-2446100.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2432180,
+            "file_path": "results\\Wander\\Wander.onnx",
+            "reward": 0.710999995470047,
+            "creation_time": 1671475389.205982,
+            "auxillary_file_paths": [
+                "results\\Wander\\Wander\\Wander-2432180.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cpu"
+    }
+}

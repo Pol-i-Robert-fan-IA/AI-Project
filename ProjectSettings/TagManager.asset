@@ -9,6 +9,7 @@ TagManager:
   - Orc
   - Healer
   - Wall
+  - WLTARGET
   layers:
   - Default
   - TransparentFX

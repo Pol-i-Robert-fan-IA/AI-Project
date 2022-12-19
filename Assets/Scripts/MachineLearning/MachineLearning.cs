@@ -7,18 +7,30 @@ using Unity.MLAgents.Actuators;
 public class MachineLearning : Agent
 {
     Rigidbody rBody;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
     }
 
     public Transform Target;
+
+    private bool resetTargetPos = false;
+
     public override void OnEpisodeBegin()
     {
         // If the Agent fell, zero its momentum
         this.rBody.angularVelocity = Vector3.zero;
         this.rBody.velocity = Vector3.zero;
-        //this.transform.localPosition = new Vector3(-7, 1.5f, 0);
+        this.transform.localPosition = new Vector3(-7, 1.5f, 0);
+
+        //target new pos
+        //Target.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
+        if(resetTargetPos)
+        {
+            Target.localPosition = RandomRayCast();
+            resetTargetPos = false;
+        }
         
     }
 
@@ -43,14 +55,14 @@ public class MachineLearning : Agent
         rBody.AddForce(controlSignal * forceMultiplier);
 
         // Rewards
-        float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+        //float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
 
         // Reached target
-        if (distanceToTarget < 1.42f)
-        {
-            SetReward(1.0f);
-            EndEpisode();
-        }
+        //if (distanceToTarget < 1.42f)
+        //{
+        //    SetReward(1.0f);
+        //    EndEpisode();
+        //}
 
 
     }
@@ -67,8 +79,41 @@ public class MachineLearning : Agent
         // Reached target
         if (col.transform.CompareTag("Wall"))
         {
-            SetReward(-1.0f);
+            //SetReward(-1.0f);
             EndEpisode();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject == Target.gameObject)
+        {
+
+            SetReward(1.0f);
+            resetTargetPos = true;
+            EndEpisode();
+        }
+    }
+
+
+    [SerializeField] private LayerMask layerMask = 0;
+    [SerializeField] private float wanderRange = 30.0f;
+    private Vector3 RandomRayCast()
+    {
+        RaycastHit hit;
+        Vector3 origin = transform.position + Random.insideUnitSphere * wanderRange;
+
+        origin.y = 100.0f;
+        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.down), out hit, 200.0f, layerMask))
+        {
+            Debug.DrawRay(origin, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+        }
+
+
+        if (hit.point == new Vector3(0.0f, 0.0f, 0.0f))
+        {
+            return RandomRayCast();
+        }
+        else return (hit.point);
     }
 }

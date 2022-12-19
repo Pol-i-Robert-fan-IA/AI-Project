@@ -2,7 +2,7 @@
   "dependencies": {
     "com.unity.barracuda": {
       "version": "2.3.1-preview",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.6.0",
@@ -99,18 +99,17 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents": {
-      "version": "2.2.1-exp.1",
-      "depth": 1,
-      "source": "registry",
+      "version": "file:C:/Testing/ml-agents/com.unity.ml-agents",
+      "depth": 0,
+      "source": "local",
       "dependencies": {
         "com.unity.barracuda": "2.3.1-preview",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.ml-agents.extensions": {
-      "version": "file:C:/Users/banus/Github/ml-agents/com.unity.ml-agents.extensions",
+      "version": "file:C:/Testing/ml-agents/com.unity.ml-agents.extensions",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -133,10 +132,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.postprocessing": {
-      "version": "2.3.0",
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
