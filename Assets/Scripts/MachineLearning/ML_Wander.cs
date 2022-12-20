@@ -59,12 +59,9 @@ public class ML_Wander : Agent
                 direction = transform.forward * 1f;
                 break;
             case 2: 
-                direction = transform.forward * -1f;
-                break;
-            case 3: 
                 rotateDir = transform.up * 1f;
                 break;
-            case 4: 
+            case 3: 
                 rotateDir = transform.up * -1f;
                 break;
         }
@@ -94,11 +91,11 @@ public class ML_Wander : Agent
     void OnCollisionEnter(Collision col)
     {
         // Reached target
-        //if (col.transform.CompareTag("Wall"))
-        //{
-        //    //SetReward(-1.0f);
-        //    EndEpisode();
-        //}
+        if (col.transform.CompareTag("Wall"))
+        {
+           SetReward(-0.01f);
+           EndEpisode();
+        }
     }
 
     void OnTriggerEnter(Collider other)
