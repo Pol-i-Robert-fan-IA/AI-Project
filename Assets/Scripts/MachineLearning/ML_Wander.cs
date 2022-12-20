@@ -12,6 +12,8 @@ public class ML_Wander : Agent
     public Transform Target;
     private bool resetTargetPos = false;
 
+    [SerializeField] float maxStopTime = 10.0f;
+    [SerializeField] float currentDelay = 0.0f;
     public override void Initialize()
     {
         rBody = GetComponent<Rigidbody>();
@@ -20,9 +22,12 @@ public class ML_Wander : Agent
 
     public override void OnEpisodeBegin()
     {
-       // this.rBody.angularVelocity = Vector3.zero;
+        // this.rBody.angularVelocity = Vector3.zero;
         //this.rBody.velocity = Vector3.zero;
         //this.transform.localPosition = initialPos;
+
+        //Unstuck
+        currentDelay = 0.0f;
 
         if (resetTargetPos)
         {
@@ -39,12 +44,29 @@ public class ML_Wander : Agent
         sensor.AddObservation(transform.InverseTransformDirection(rBody.velocity));
 
         sensor.AddObservation(rBody.velocity.x);
+        sensor.AddObservation(rBody.velocity.z);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         AddReward(-1f / MaxStep);
         MoveAgent(actionBuffers.DiscreteActions);
+        //UnStuck();
+    }
+
+    public void UnStuck()
+    {
+        if (rBody.velocity.z < 0.05f) currentDelay += Time.deltaTime;
+        else currentDelay = 0.0f;
+
+        if (currentDelay > maxStopTime)
+        {
+            resetTargetPos = true;
+            currentDelay = 0.0f;
+
+            Debug.Log("Unstucking");
+            EndEpisode();
+        }
     }
 
     public void MoveAgent(ActionSegment<int> act)
@@ -58,6 +80,9 @@ public class ML_Wander : Agent
             case 1: 
                 direction = transform.forward * 1f;
                 break;
+            //case 2:
+            //    direction = transform.forward * -1f;
+            //    break;
             case 2: 
                 rotateDir = transform.up * 1f;
                 break;

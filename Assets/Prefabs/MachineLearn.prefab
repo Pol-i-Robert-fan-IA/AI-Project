@@ -252,8 +252,10 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 2500
+  MaxStep: 5000
   Target: {fileID: 0}
+  maxStopTime: 20
+  currentDelay: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -288,6 +290,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - WLTARGET
+  - Floor
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 70
   m_SphereCastRadius: 0.5
@@ -316,6 +319,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - WLTARGET
+  - Floor
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 65
   m_SphereCastRadius: 0.5
@@ -326,8 +330,8 @@ MonoBehaviour:
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
-  m_StartVerticalOffset: 0.5
-  m_EndVerticalOffset: 7.8
+  m_StartVerticalOffset: 3.3
+  m_EndVerticalOffset: 10
 --- !u!114 &257182868516923711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +348,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - WLTARGET
+  - Floor
   m_RaysPerDirection: 3
   m_MaxRayDegrees: 65
   m_SphereCastRadius: 0.5

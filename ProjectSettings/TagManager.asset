@@ -10,6 +10,7 @@ TagManager:
   - Healer
   - Wall
   - WLTARGET
+  - Floor
   layers:
   - Default
   - TransparentFX
