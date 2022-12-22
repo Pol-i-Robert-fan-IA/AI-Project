@@ -2,58 +2,31 @@
     "Wander": {
         "checkpoints": [
             {
-                "steps": 1901770,
-                "file_path": "results\\Wander\\Wander\\Wander-1901770.onnx",
+                "steps": 207086,
+                "file_path": "results\\Wander\\Wander\\Wander-207086.onnx",
                 "reward": null,
-                "creation_time": 1671472042.4351232,
+                "creation_time": 1671667588.2541003,
                 "auxillary_file_paths": [
-                    "results\\Wander\\Wander\\Wander-1901770.pt"
+                    "results\\Wander\\Wander\\Wander-207086.pt"
                 ]
             },
             {
-                "steps": 2203507,
-                "file_path": "results\\Wander\\Wander\\Wander-2203507.onnx",
+                "steps": 404315,
+                "file_path": "results\\Wander\\Wander\\Wander-404315.onnx",
                 "reward": null,
-                "creation_time": 1671474455.0213237,
+                "creation_time": 1671669072.9720294,
                 "auxillary_file_paths": [
-                    "results\\Wander\\Wander\\Wander-2203507.pt"
-                ]
-            },
-            {
-                "steps": 2427411,
-                "file_path": "results\\Wander\\Wander\\Wander-2427411.onnx",
-                "reward": 0.8383333335320154,
-                "creation_time": 1671475251.229245,
-                "auxillary_file_paths": [
-                    "results\\Wander\\Wander\\Wander-2427411.pt"
-                ]
-            },
-            {
-                "steps": 2432180,
-                "file_path": "results\\Wander\\Wander\\Wander-2432180.onnx",
-                "reward": 0.710999995470047,
-                "creation_time": 1671475389.205982,
-                "auxillary_file_paths": [
-                    "results\\Wander\\Wander\\Wander-2432180.pt"
-                ]
-            },
-            {
-                "steps": 2446100,
-                "file_path": "results\\Wander\\Wander\\Wander-2446100.onnx",
-                "reward": null,
-                "creation_time": 1671476209.987059,
-                "auxillary_file_paths": [
-                    "results\\Wander\\Wander\\Wander-2446100.pt"
+                    "results\\Wander\\Wander\\Wander-404315.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2432180,
+            "steps": 404315,
             "file_path": "results\\Wander\\Wander.onnx",
-            "reward": 0.710999995470047,
-            "creation_time": 1671475389.205982,
+            "reward": null,
+            "creation_time": 1671669072.9720294,
             "auxillary_file_paths": [
-                "results\\Wander\\Wander\\Wander-2432180.pt"
+                "results\\Wander\\Wander\\Wander-404315.pt"
             ]
         }
     },

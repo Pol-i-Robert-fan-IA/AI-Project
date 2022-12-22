@@ -14,6 +14,9 @@ public class ML_Wander : Agent
 
     [SerializeField] float maxStopTime = 10.0f;
     [SerializeField] float currentDelay = 0.0f;
+
+    private int strike = 0;
+
     public override void Initialize()
     {
         rBody = GetComponent<Rigidbody>();
@@ -22,12 +25,12 @@ public class ML_Wander : Agent
 
     public override void OnEpisodeBegin()
     {
-        // this.rBody.angularVelocity = Vector3.zero;
-        //this.rBody.velocity = Vector3.zero;
+        this.rBody.angularVelocity = Vector3.zero;
+        this.rBody.velocity = Vector3.zero;
         //this.transform.localPosition = initialPos;
 
         //Unstuck
-        currentDelay = 0.0f;
+        //currentDelay = 0.0f;
 
         if (resetTargetPos)
         {
@@ -36,22 +39,25 @@ public class ML_Wander : Agent
             Target.position = newPos;
             resetTargetPos = false;
         }
+
+        if (strike != 0) Debug.Log("Strike '" + strike + "'!");
+
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Target.localPosition);
+        //sensor.AddObservation(Target.localPosition);
         sensor.AddObservation(transform.InverseTransformDirection(rBody.velocity));
 
         sensor.AddObservation(rBody.velocity.x);
-        sensor.AddObservation(rBody.velocity.z);
+        sensor.AddObservation(rBody.velocity.y);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        AddReward(-1f / MaxStep);
+        AddReward(-1.0f / MaxStep);
         MoveAgent(actionBuffers.DiscreteActions);
-        //UnStuck();
+        UnStuck();
     }
 
     public void UnStuck()
@@ -63,7 +69,8 @@ public class ML_Wander : Agent
         {
             resetTargetPos = true;
             currentDelay = 0.0f;
-
+            AddReward(-1.5f);
+            strike = 0;
             Debug.Log("Unstucking");
             EndEpisode();
         }
@@ -80,13 +87,13 @@ public class ML_Wander : Agent
             case 1: 
                 direction = transform.forward * 1f;
                 break;
-            //case 2:
-            //    direction = transform.forward * -1f;
-            //    break;
-            case 2: 
-                rotateDir = transform.up * 1f;
+            case 2:
+                direction = transform.forward * -1f;
                 break;
             case 3: 
+                rotateDir = transform.up * 1f;
+                break;
+            case 4: 
                 rotateDir = transform.up * -1f;
                 break;
         }
@@ -116,10 +123,9 @@ public class ML_Wander : Agent
     void OnCollisionEnter(Collision col)
     {
         // Reached target
-        if (col.transform.CompareTag("Wall"))
+        if (col.transform.CompareTag("Wall") || col.transform.CompareTag("Runner") || col.transform.CompareTag("NPC"))
         {
-           SetReward(-0.01f);
-           EndEpisode();
+            AddReward(-0.1f);
         }
     }
 
@@ -127,8 +133,9 @@ public class ML_Wander : Agent
     {
         if (other.gameObject.CompareTag("WLTARGET"))
         {
-            SetReward(1.0f);
+            AddReward(1.0f);
             resetTargetPos = true;
+            strike++;
             EndEpisode();
         }
     }

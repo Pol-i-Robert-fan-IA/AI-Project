@@ -1,0 +1,29 @@
+{
+    "Wander": {
+        "checkpoints": [
+            {
+                "steps": 121413,
+                "file_path": "results\\SmartSkeleton\\Wander\\Wander-121413.onnx",
+                "reward": 0.8348000004129895,
+                "creation_time": 1671734786.4500782,
+                "auxillary_file_paths": [
+                    "results\\SmartSkeleton\\Wander\\Wander-121413.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 121413,
+            "file_path": "results\\SmartSkeleton\\Wander.onnx",
+            "reward": 0.8348000004129895,
+            "creation_time": 1671734786.4500782,
+            "auxillary_file_paths": [
+                "results\\SmartSkeleton\\Wander\\Wander-121413.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cpu"
+    }
+}

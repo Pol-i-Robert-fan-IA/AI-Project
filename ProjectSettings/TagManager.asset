@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - WLTARGET
   - Floor
+  - NPC
   layers:
   - Default
   - TransparentFX
