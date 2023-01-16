@@ -9,4 +9,15 @@ public class MyEvents : MonoBehaviour
     public List<Blackboard_Skeleton> deathSkeletons;
 
     public List<Killer> killers;
+    public List<Hider> hiders;
+
+    private void Start()
+    {
+        Hider[] hiding = FindObjectsOfType<Hider>();
+
+        foreach(Hider hide in hiding)
+        {
+            hiders.Add(hide);
+        }
+    }
 }

@@ -34,7 +34,7 @@ MonoBehaviour:
     <child>\r\n              <ActionNode id=\"6\" />\r\n            </child>\r\n         
     </GuardAndNode>\r\n        </elem>\r\n      </children>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n   
-    <ConditionEvalNode id=\"7\" policy=\"ATOMIC_CHECK\" name=\"Perception/IsTargetClose\">\r\n     
+    <ConditionEvalNode id=\"7\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Perception/IsTargetClose\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"target\" />\r\n          <entry name=\"closeDistance\"
     type=\"System.Single\" isBlackboard=\"True\" blackboard=\"closeDistance\" />\r\n       
@@ -70,14 +70,15 @@ MonoBehaviour:
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <PrioritySelectorNode id=\"3\" />\r\n          <SequenceNode id=\"2\" />\r\n       
     </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode
-    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
     position=\"283 514\" name=\"Perception/IsTargetClose\" description=\"Eval\" cardinality=\"1\"
-    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode
-    id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
-    <ActionNode id=\"6\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
-    position=\"283 514\" name=\"Vector3/MoveAway\" description=\"\" cardinality=\"0\"
-    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
-    id=\"6\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode
+    id=\"7\" />\r\n          <PrioritySelectorNode id=\"3\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"6\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"283 514\" name=\"Vector3/MoveAway\"
+    description=\"\" cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ActionNode id=\"6\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 1
   subslist: []
   _guid: 1c558f946a3e8f140bd92f1346c9086a

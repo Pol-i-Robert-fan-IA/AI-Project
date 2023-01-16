@@ -27,20 +27,33 @@ public class MoveAway : BasePrimitiveAction
     {
         startTransform = self.transform;
         navAgent = self.GetComponent<UnityEngine.AI.NavMeshAgent>();
-
+        Transform _transform = self.transform;
         //temporarily point the object to look away from the player
-        self.transform.rotation = Quaternion.LookRotation(self.transform.position - target.transform.position);
+        _transform.rotation = Quaternion.LookRotation(self.transform.position - target.transform.position);
 
         //Then we'll get the position on that rotation that's multiplyBy down the path (you could set a Random.range
         // for t$$anonymous$$s if you want variable results) and store it in a new Vector3 called runTo
-        Vector3 runTo = self.transform.position + self.transform.forward * multiplyBy;
+        Vector3 runTo = _transform.position + _transform.forward * multiplyBy;
 
         UnityEngine.AI.NavMeshHit meshHit;
 
         // 5 is the distance to check, assumes you use default for the NavMesh Layer name
-        UnityEngine.AI.NavMesh.SamplePosition(runTo, out meshHit, 5, 1 << UnityEngine.AI.NavMesh.GetNavMeshLayerFromName("Default"));
-        //Debug.Log("$$anonymous$$t = " + $$anonymous$$t + " $$anonymous$$t.position = " + $$anonymous$$t.position);
+        if (!UnityEngine.AI.NavMesh.SamplePosition(runTo, out meshHit, 5, 1 << UnityEngine.AI.NavMesh.GetNavMeshLayerFromName("Default")))
+        {
+            Debug.Log("First Mesh Hit Failed");
+            _transform.rotation = Quaternion.AngleAxis(100.0f, Vector3.up);
+            runTo = _transform.position + _transform.forward * multiplyBy;
+            if (!UnityEngine.AI.NavMesh.SamplePosition(runTo, out meshHit, 5, 1 << UnityEngine.AI.NavMesh.GetNavMeshLayerFromName("Default")))
+            {
+                Debug.Log("Second Mesh Hit Failed");
+                _transform.rotation = Quaternion.AngleAxis(-200.0f, Vector3.up);
+                runTo = _transform.position + _transform.forward * multiplyBy;
+                UnityEngine.AI.NavMesh.SamplePosition(runTo, out meshHit, 5, 1 << UnityEngine.AI.NavMesh.GetNavMeshLayerFromName("Default"));
+            }
+        }
 
+        //Debug.Log("$$anonymous$$t = " + $$anonymous$$t + " $$anonymous$$t.position = " + $$anonymous$$t.position);
+        
         // just used for testing - safe to ignore
         //nextTurnTime = Time.time + 5;
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6275124588829000655}
   - component: {fileID: 6275124588829000650}
   - component: {fileID: -85804722878647419}
+  - component: {fileID: 752581804}
   m_Layer: 0
   m_Name: Leader
   m_TagString: Runner
@@ -74,7 +75,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -98,6 +99,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3abea381df4de4983ec2ab62f6b529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &752581804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275124588829000688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b56e8a81163ab47a7090c5f4b0a33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melee: 2
+  meleePrefab: {fileID: 0}
+  missile: 3
+  missilePrefab: {fileID: 0}
+  magic: 4
+  magicPrefab: {fileID: 0}
+  ghost: {fileID: 6275124588829000688}
 --- !u!1001 &4339456298620465462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,6 +177,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 00cd7fe371eeb464ca3773d83e024fc2, type: 2}
+    - target: {fileID: 13783464, guid: 880858dfd9b1e784e89d45242bf78d2b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0574116a7188c654ab34fcd54a2d0ecc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 880858dfd9b1e784e89d45242bf78d2b, type: 3}
 --- !u!4 &4339456298620665976 stripped
